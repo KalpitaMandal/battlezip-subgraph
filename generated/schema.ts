@@ -27,8 +27,7 @@ export class BattleshipGame extends Entity {
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        "Cannot save BattleshipGame entity with non-string ID. " +
-          'Considering using .toHex() to convert the "id" to a string.'
+        `Entities of type BattleshipGame must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
       store.set("BattleshipGame", id.toString(), this);
     }
@@ -134,7 +133,6 @@ export class Shot extends Entity {
     this.set("x", Value.fromBigInt(BigInt.zero()));
     this.set("y", Value.fromBigInt(BigInt.zero()));
     this.set("game", Value.fromString(""));
-    this.set("hit", Value.fromBoolean(false));
     this.set("turn", Value.fromBigInt(BigInt.zero()));
   }
 
@@ -144,8 +142,7 @@ export class Shot extends Entity {
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        "Cannot save Shot entity with non-string ID. " +
-          'Considering using .toHex() to convert the "id" to a string.'
+        `Entities of type Shot must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
       );
       store.set("Shot", id.toString(), this);
     }

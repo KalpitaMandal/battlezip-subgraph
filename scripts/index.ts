@@ -7,6 +7,7 @@ import local from './deployments/local-deployment.json';
 import mumbai from './deployments/mumbai-deployment.json';
 import polygon from './deployments/polygon-deployment.json';
 import rinkeby from './deployments/rinkeby-deployment.json';
+import nova from './deployments/nova-deployment.json';
 import yargs from 'yargs';
 
 interface BattleshipDeployment {
@@ -62,6 +63,15 @@ const deployment = (network: string): BattleshipDeployment => {
 
         // Contracts
         battleshipGame: polygon.battleshipGame,
+      };
+    }
+    case 'nova': {
+      return {
+        networkName: nova.networkName,
+        startBlock: nova.startBlock,
+
+        // Contracts
+        battleshipGame: nova.battleshipGame,
       };
     }
   }
